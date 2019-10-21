@@ -29,22 +29,67 @@
 // A comparator function used by qsort 
 int compare(const void * a, const void * b) 
 { 
+    return ( *(unsigned char*)a - *(unsigned char*)b ); 
 } 
 
 void print_arr(unsigned char* arr, int N) {
+   printf("the array is: ");
+   for (int i = 0; i < N; i++)
+	printf("%d, ",arr[i]);
+   printf("\n"); 
 }
 
 unsigned char find_max(unsigned char* arr, int N, int isSorted) {
+	if (isSorted == 1) {
+	    return arr[N-1];
+	}
+	else {
+	   unsigned char max = arr[0];
+	   for (int i = 1; i < N; i++ ) {
+		   max = (arr[i] > max)? arr[i]: max; 
+	   }
+	   return max; 
+	}
 }
 unsigned char find_min(unsigned char* arr, int N, int isSorted) {
+	if (isSorted == 1) {
+	    return arr[0];
+	}
+	else {
+	   unsigned char min = arr[0];
+	   for (int i = 1; i < N; i++ ) {
+		   min = (arr[i] < min )? arr[i]: min; 
+	   }
+           return min; 	
+	}
 }
 unsigned char find_mean(unsigned char* arr, int N) {
+	   unsigned char S = 0;
+	   for (int i = 1; i < N; i++ ) {
+		   S += arr[i]; 
+	   }
+	   return S; 
 }
 unsigned char find_median(unsigned char* arr, int N, int isSorted) {
+	if (isSorted == 0)
+            qsort(arr, N, sizeof(char), compare); 
+	else
+	    if (N%2 == 1)
+		    return arr[N/2];
+	    else
+		    return (arr[(N-1)/2] + arr[N/2])/2;
   
 
 }
 void print_statistics(unsigned char* arr, int N, int isSorted) {
+    unsigned char arr_max = find_max(arr, N, isSorted);
+    unsigned char arr_min = find_min(arr, N, isSorted);
+    unsigned char arr_mean = find_mean(arr, N);
+    unsigned char arr_media = find_median(arr, N, isSorted);
+    printf("min = %d, ", arr_max);
+    printf("max = %d, ", arr_min);
+    printf("mean = %d, ", arr_mean);
+    printf("media = %d\n", arr_media);
 }
 void main() {
 
