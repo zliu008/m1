@@ -23,6 +23,13 @@
 
 /* Add Your Declarations and Function Comments here */ 
 
+int compare(const void * a, const void * b) ;
+void print_arr(unsigned char* arr, int N);
+void print_statistics(unsigned char* arr, int N, int isSorted);
+unsigned char find_median(unsigned char* arr, int N, int isSorted);
+unsigned char find_mean(unsigned char* arr, int N);
+unsigned char find_min(unsigned char* arr, int N, int isSorted);
+unsigned char find_max(unsigned char* arr, int N, int isSorted);
 /**
  * @brief <Add Brief Description of Function Here>
  *

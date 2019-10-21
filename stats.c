@@ -23,10 +23,29 @@
 
 #include <stdio.h>
 #include "stats.h"
-
+#include <stdlib.h>
 /* Size of the Data Set */
 #define SIZE (40)
+// A comparator function used by qsort 
+int compare(const void * a, const void * b) 
+{ 
+} 
 
+void print_arr(unsigned char* arr, int N) {
+}
+
+unsigned char find_max(unsigned char* arr, int N, int isSorted) {
+}
+unsigned char find_min(unsigned char* arr, int N, int isSorted) {
+}
+unsigned char find_mean(unsigned char* arr, int N) {
+}
+unsigned char find_median(unsigned char* arr, int N, int isSorted) {
+  
+
+}
+void print_statistics(unsigned char* arr, int N, int isSorted) {
+}
 void main() {
 
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
@@ -37,7 +56,9 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
-
+  qsort(test, SIZE, sizeof(char), compare); 
+  print_arr(test, SIZE);
+  print_statistics(test, SIZE, 1);
 }
 
 /* Add other Implementation File Code Here */
